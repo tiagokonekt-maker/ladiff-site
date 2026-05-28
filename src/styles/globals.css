@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  /* Palette provençale */
+  --color-olive-50: #f7f8f1;
+  --color-olive-100: #ecefdc;
+  --color-olive-200: #d8debb;
+  --color-olive-300: #bcc592;
+  --color-olive-400: #a0ac6e;
+  --color-olive-500: #849256;
+  --color-olive-600: #677342;
+  --color-olive-700: #515b37;
+  --color-olive-800: #424830;
+  --color-olive-900: #393e2c;
+
+  --color-soleil-50: #fefbe8;
+  --color-soleil-100: #fff6c2;
+  --color-soleil-200: #ffe988;
+  --color-soleil-300: #ffd544;
+  --color-soleil-400: #febd19;
+  --color-soleil-500: #ee9d0a;
+  --color-soleil-600: #cd7505;
+  --color-soleil-700: #a35208;
+  --color-soleil-800: #86410f;
+  --color-soleil-900: #723612;
+
+  --color-lavande-50: #f4f3ff;
+  --color-lavande-100: #ece9fe;
+  --color-lavande-200: #dbd6fe;
+  --color-lavande-400: #9f87f8;
+  --color-lavande-600: #7039e8;
+  --color-lavande-700: #6028d3;
+  --color-lavande-800: #5022b1;
+
+  --color-tomette-50: #fdf5f3;
+  --color-tomette-100: #fbe7e3;
+  --color-tomette-200: #f9d3cc;
+  --color-tomette-400: #ea8674;
+  --color-tomette-500: #dd6049;
+  --color-tomette-600: #c9462e;
+  --color-tomette-700: #a83824;
+  --color-tomette-800: #8b3122;
+
+  --color-creme-50: #fdfcf7;
+  --color-creme-100: #faf7ec;
+  --color-creme-200: #f4eed5;
+  --color-creme-300: #ebe0b5;
+
+  --color-ciel-100: #dceefc;
+  --color-ciel-200: #c1e1fa;
+  --color-ciel-400: #64b1f0;
+
+  /* Système (shadcn-like, mais sur notre palette) */
+  --color-background: #fdfcf7;
+  --color-foreground: #2d3018;
+  --color-primary: #515b37;
+  --color-primary-foreground: #fdfcf7;
+  --color-muted: #f4eed5;
+  --color-muted-foreground: #677343;
+  --color-border: rgba(81, 91, 55, 0.15);
+  --color-card: #ffffff;
+
+  /* Typo */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Radius */
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-6xl px-5 sm:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto max-w-3xl px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-olive-700 px-6 py-3 text-sm font-medium text-creme-50 transition-all duration-300 hover:bg-olive-800 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive-500 focus-visible:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-olive-700/25 bg-transparent px-6 py-3 text-sm font-medium text-olive-800 transition-all duration-300 hover:bg-olive-700 hover:text-creme-50;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs uppercase tracking-[0.22em] text-olive-700 font-medium;
+  }
+}
+
+/* Animations doux au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
